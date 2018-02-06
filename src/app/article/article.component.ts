@@ -10,21 +10,24 @@ export class ArticleComponent implements OnInit {
   //want each article to be on its own row
   //using SemanticUI-provides class for rows called 'row'
   @HostBinding('attr.class') cssClass = 'row';
-  votes: number;
-  title: string;
-  link: string;
+   title: string;
+   link: string;
+   votes: number; 
 
-  constructor() {
-    this.title = 'Angular 2';
-    this.link = 'http://angular.io';
-    this.votes = 10;
+  //setting default attributes
+  constructor(title:string, link:string, votes:number) {//need to add parameters^^
+    this.title = title;
+    this.link = link;
+    this.votes = votes;
    }
-
+//voting methods
    voteUp() {
-     this.votes += 1;
+     this.votes +=1;
+     return false;
    }
    voteDown(){
      this.votes -= 1;
+     return false;
    }
 
   ngOnInit() {
